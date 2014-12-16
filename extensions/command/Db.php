@@ -58,7 +58,7 @@ class Db extends \lithium\console\Command {
 	 * Creates, drops, dumps and truncates the schema and then loads the records.
 	 *
 	 * To recreate the schema for 'users' and insert all the records for it:
-	 *     $ li3 db reload UsersRoles
+	 *     $ li3 db reload Users
 	 *
 	 * To recreate the schema for 'users' and 'roles' and insert all the records for them:
 	 *     $ li3 db reload Users,Roles
@@ -179,7 +179,7 @@ class Db extends \lithium\console\Command {
 	 * Creates, drops, dumps and truncates the schema.
 	 *
 	 * In order to create the schema for the 'users' table:
-	 *     $ li3 db schema create UsersRoles
+	 *     $ li3 db schema create Users
 	 *
 	 * In order to drop the schema for the 'users' table:
 	 *     $ li3 db schema drop Users
