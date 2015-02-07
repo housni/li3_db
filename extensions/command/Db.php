@@ -9,6 +9,7 @@
 namespace li3_db\extensions\command;
 
 use lithium\util\Inflector;
+use lithium\data\Model;
 use lithium\data\Schema;
 use lithium\data\Connections;
 use lithium\core\Libraries;
@@ -223,7 +224,7 @@ class Db extends \lithium\console\Command {
 		if (!$model) {
 			foreach (Libraries::locate('models') as $class) {
 				$skip = false;
-				if (isset($class::$persist) && false === $class::$persist) {
+				if (!($class instanceof Model) || isset($class::$persist) && false === $class::$persist) {
 					$skip = true;
 				}
 				if (!$skip && false !== $class::meta('connection')) {
