@@ -224,7 +224,8 @@ class Db extends \lithium\console\Command {
 		if (!$model) {
 			foreach (Libraries::locate('models') as $class) {
 				$skip = false;
-				if (!($class instanceof Model) || isset($class::$persist) && false === $class::$persist) {
+				$isSubclass = is_subclass_of($class, '\lithium\data\Model');
+				if (!$isSubclass || isset($class::$persist) && false === $class::$persist) {
 					$skip = true;
 				}
 				if (!$skip && false !== $class::meta('connection')) {
